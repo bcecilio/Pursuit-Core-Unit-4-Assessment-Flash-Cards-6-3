@@ -7,10 +7,13 @@
 //
 
 import UIKit
+import DataPersistence
 
 class SearchController: UIViewController {
     
     private let searchView = SearchCardsView()
+    
+    private let dataPersistence = DataPersistence<Card>(filename: "card.plist")
     
     private var savedCard = [Card]() {
         didSet {
@@ -34,10 +37,13 @@ class SearchController: UIViewController {
     }
     
     private func getCards() {
-        do {
-            savedCard = try CardLocalClient.getCardsLocal()
-        } catch {
-            print("could not get locally")
+        CardAPIClient.getCards { [weak self] (result) in
+            switch result {
+            case .failure(let appError):
+                print("\(appError)")
+            case .success(let card):
+                self?.savedCard = card
+            }
         }
     }
 }
@@ -65,5 +71,29 @@ extension SearchController: UICollectionViewDelegateFlowLayout, UICollectionView
         let totalSpacing: CGFloat = (2 * spacingBetweenItems) + (numberOfItems - 1 ) * spacingBetweenItems
         let itemWidth: CGFloat = (maxSize.width - totalSpacing) / numberOfItems
         return CGSize(width: itemWidth, height: itemHeight)
+    }
+}
+
+extension SearchController: SearchSavedCellDelegate {
+    func didSelectMoreButton(_ savedCell: SearchCardCell, card: Card) {
+        let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+        let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { alertAction in
+            self.deleteArticle(card)
+        }
+        alertController.addAction(cancelAction)
+        alertController.addAction(deleteAction)
+        present(alertController, animated: true)
+    }
+    
+    private func deleteArticle(_ card: Card) {
+        guard let index = savedCard.firstIndex(of: card) else {
+            return
+        }
+        do {
+            try dataPersistence.deleteItem(at: index)
+        } catch {
+            print("error deleting article: \(error)")
+        }
     }
 }

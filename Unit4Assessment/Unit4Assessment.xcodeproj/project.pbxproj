@@ -13,7 +13,8 @@
 		579023A123F2EE3B000AA216 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 579023A023F2EE3B000AA216 /* Assets.xcassets */; };
 		579023A423F2EE3B000AA216 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 579023A223F2EE3B000AA216 /* LaunchScreen.storyboard */; };
 		579023AF23F2EE3B000AA216 /* Unit4AssessmentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579023AE23F2EE3B000AA216 /* Unit4AssessmentTests.swift */; };
-		B71A411123F32B6300CB8208 /* CardJson.json in Resources */ = {isa = PBXBuildFile; fileRef = B71A411023F32B6300CB8208 /* CardJson.json */; };
+		B71A411123F32B6300CB8208 /* card.json in Resources */ = {isa = PBXBuildFile; fileRef = B71A411023F32B6300CB8208 /* card.json */; };
+		B71A411523F33F1F00CB8208 /* CardLocalClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B71A411423F33F1F00CB8208 /* CardLocalClient.swift */; };
 		B7C7B91D23F2F8C20052DC31 /* TabBarControllerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C7B91C23F2F8C20052DC31 /* TabBarControllerViewController.swift */; };
 		B7C7B91F23F2F8DE0052DC31 /* CreateCardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C7B91E23F2F8DE0052DC31 /* CreateCardController.swift */; };
 		B7C7B92123F2F9130052DC31 /* SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C7B92023F2F9130052DC31 /* SearchController.swift */; };
@@ -49,7 +50,8 @@
 		579023AA23F2EE3B000AA216 /* Unit4AssessmentTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Unit4AssessmentTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		579023AE23F2EE3B000AA216 /* Unit4AssessmentTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Unit4AssessmentTests.swift; sourceTree = "<group>"; };
 		579023B023F2EE3B000AA216 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B71A411023F32B6300CB8208 /* CardJson.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = CardJson.json; sourceTree = "<group>"; };
+		B71A411023F32B6300CB8208 /* card.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = card.json; sourceTree = "<group>"; };
+		B71A411423F33F1F00CB8208 /* CardLocalClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardLocalClient.swift; sourceTree = "<group>"; };
 		B7C7B91C23F2F8C20052DC31 /* TabBarControllerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarControllerViewController.swift; sourceTree = "<group>"; };
 		B7C7B91E23F2F8DE0052DC31 /* CreateCardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCardController.swift; sourceTree = "<group>"; };
 		B7C7B92023F2F9130052DC31 /* SearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchController.swift; sourceTree = "<group>"; };
@@ -103,8 +105,9 @@
 		5790239623F2EE39000AA216 /* Unit4Assessment */ = {
 			isa = PBXGroup;
 			children = (
-				B71A411023F32B6300CB8208 /* CardJson.json */,
+				B71A411023F32B6300CB8208 /* card.json */,
 				B7C7B93423F310FA0052DC31 /* CardAPIClient.swift */,
+				B71A411423F33F1F00CB8208 /* CardLocalClient.swift */,
 				B7C7B93623F311800052DC31 /* CardData.swift */,
 				B7C7B93323F310EA0052DC31 /* Cells */,
 				B7C7B92923F2F99A0052DC31 /* Views */,
@@ -254,7 +257,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				579023A423F2EE3B000AA216 /* LaunchScreen.storyboard in Resources */,
-				B71A411123F32B6300CB8208 /* CardJson.json in Resources */,
+				B71A411123F32B6300CB8208 /* card.json in Resources */,
 				579023A123F2EE3B000AA216 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -285,6 +288,7 @@
 				B7C7B91F23F2F8DE0052DC31 /* CreateCardController.swift in Sources */,
 				B7C7B91D23F2F8C20052DC31 /* TabBarControllerViewController.swift in Sources */,
 				B7C7B92823F2F9920052DC31 /* SearchCardsView.swift in Sources */,
+				B71A411523F33F1F00CB8208 /* CardLocalClient.swift in Sources */,
 				5790239A23F2EE39000AA216 /* SceneDelegate.swift in Sources */,
 				B7C7B92E23F2FA160052DC31 /* CardsController.swift in Sources */,
 			);

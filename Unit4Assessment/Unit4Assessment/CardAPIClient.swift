@@ -32,26 +32,3 @@ struct CardAPIClient {
         }
     }
 }
-
-public enum AppleServiceError: Error {
-    case resourcePathDoesNotExist
-    case contentsNotFound
-    case decodingError(Error)
-}
-
-struct CardLocalClient {
-    static func getCardsLocal() throws -> [Card] {
-        guard let path = Bundle.main.path(forResource: "CardJson", ofType: "json") else {
-            throw AppleServiceError.resourcePathDoesNotExist
-        }
-        guard let json = FileManager.default.contents(atPath: path) else {
-            throw AppleServiceError.contentsNotFound
-        }
-        do {
-            let card = try JSONDecoder().decode([Card].self, from: json)
-            return card
-        } catch {
-            throw AppleServiceError.decodingError(error)
-        }
-    }
-}
