@@ -60,6 +60,7 @@ extension SearchController: UICollectionViewDelegateFlowLayout, UICollectionView
         let savedCell = searchCards[indexPath.row]
         cell.configureCell(for: savedCell)
         cell.backgroundColor = .white
+        cell.delegate = self
         return cell
     }
     
@@ -78,20 +79,20 @@ extension SearchController: SearchSavedCellDelegate {
     func didSelectMoreButton(_ savedCell: SearchCardCell, card: Card) {
         let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
-        let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { alertAction in
-            self.deleteArticle(card)
+        let deleteAction = UIAlertAction(title: "Save", style: .destructive) { alertAction in
+            self.saveCard(card)
         }
         alertController.addAction(cancelAction)
         alertController.addAction(deleteAction)
         present(alertController, animated: true)
     }
     
-    private func deleteArticle(_ card: Card) {
-        guard let index = searchCards.firstIndex(of: card) else {
+    private func saveCard(_ card: Card) {
+        guard searchCards.firstIndex(of: card) != nil else {
             return
         }
         do {
-            try dataPersistence.deleteItem(at: index)
+            try dataPersistence.createItem(card)
         } catch {
             print("error deleting article: \(error)")
         }

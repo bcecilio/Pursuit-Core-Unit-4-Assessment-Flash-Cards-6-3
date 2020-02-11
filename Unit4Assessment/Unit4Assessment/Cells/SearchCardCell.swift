@@ -9,14 +9,10 @@
 import UIKit
 
 protocol SearchSavedCellDelegate: AnyObject {
-    func didSelectMoreButton(_ savedCell: SearchCardCell, card: Card)
+    func didSelectMoreButton(_ searchCell: SearchCardCell, card: Card)
 }
 
 class SearchCardCell: UICollectionViewCell {
-    
-    weak var delegate: SearchSavedCellDelegate?
-    
-    private var selectedCard: Card!
     
     private lazy var saveButton: UIButton = {
         let button = UIButton()
@@ -57,6 +53,10 @@ class SearchCardCell: UICollectionViewCell {
     
     private var descriptionShowing = false
     
+    weak var delegate: SearchSavedCellDelegate?
+    
+    private var selectedCard: Card!
+    
     override init(frame: CGRect) {
         super.init(frame: UIScreen.main.bounds)
         commonInit()
@@ -68,11 +68,11 @@ class SearchCardCell: UICollectionViewCell {
     }
     
     private func commonInit() {
+        addGestureRecognizer(longPressGesture)
         setupButton()
         setupTitle()
         setupDescription1()
         setupDescription2()
-        addGestureRecognizer(longPressGesture)
     }
     
     @objc private func buttonPressed(_ sender: UIButton) {
