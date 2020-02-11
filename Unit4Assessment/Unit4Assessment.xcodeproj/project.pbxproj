@@ -15,6 +15,7 @@
 		579023AF23F2EE3B000AA216 /* Unit4AssessmentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579023AE23F2EE3B000AA216 /* Unit4AssessmentTests.swift */; };
 		B71A411123F32B6300CB8208 /* card.json in Resources */ = {isa = PBXBuildFile; fileRef = B71A411023F32B6300CB8208 /* card.json */; };
 		B71A411523F33F1F00CB8208 /* CardLocalClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B71A411423F33F1F00CB8208 /* CardLocalClient.swift */; };
+		B71A411723F353AE00CB8208 /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B71A411623F353AE00CB8208 /* EmptyView.swift */; };
 		B7C7B91D23F2F8C20052DC31 /* TabBarControllerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C7B91C23F2F8C20052DC31 /* TabBarControllerViewController.swift */; };
 		B7C7B91F23F2F8DE0052DC31 /* CreateCardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C7B91E23F2F8DE0052DC31 /* CreateCardController.swift */; };
 		B7C7B92123F2F9130052DC31 /* SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C7B92023F2F9130052DC31 /* SearchController.swift */; };
@@ -52,6 +53,7 @@
 		579023B023F2EE3B000AA216 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B71A411023F32B6300CB8208 /* card.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = card.json; sourceTree = "<group>"; };
 		B71A411423F33F1F00CB8208 /* CardLocalClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardLocalClient.swift; sourceTree = "<group>"; };
+		B71A411623F353AE00CB8208 /* EmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyView.swift; sourceTree = "<group>"; };
 		B7C7B91C23F2F8C20052DC31 /* TabBarControllerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarControllerViewController.swift; sourceTree = "<group>"; };
 		B7C7B91E23F2F8DE0052DC31 /* CreateCardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCardController.swift; sourceTree = "<group>"; };
 		B7C7B92023F2F9130052DC31 /* SearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchController.swift; sourceTree = "<group>"; };
@@ -154,6 +156,7 @@
 			isa = PBXGroup;
 			children = (
 				B7C7B92323F2F9740052DC31 /* CardsView.swift */,
+				B71A411623F353AE00CB8208 /* EmptyView.swift */,
 				B7C7B92523F2F9820052DC31 /* CreateCardsView.swift */,
 				B7C7B92723F2F9920052DC31 /* SearchCardsView.swift */,
 			);
@@ -280,6 +283,7 @@
 				5790239C23F2EE39000AA216 /* ViewController.swift in Sources */,
 				B7C7B92123F2F9130052DC31 /* SearchController.swift in Sources */,
 				B7C7B93723F311800052DC31 /* CardData.swift in Sources */,
+				B71A411723F353AE00CB8208 /* EmptyView.swift in Sources */,
 				B7C7B93523F310FA0052DC31 /* CardAPIClient.swift in Sources */,
 				B7C7B93223F2FD890052DC31 /* SearchCardCell.swift in Sources */,
 				5790239823F2EE39000AA216 /* AppDelegate.swift in Sources */,

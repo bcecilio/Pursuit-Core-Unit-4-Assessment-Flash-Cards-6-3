@@ -13,9 +13,9 @@ class SearchController: UIViewController {
     
     private let searchView = SearchCardsView()
     
-    private let dataPersistence = DataPersistence<Card>(filename: "card.plist")
+    public let dataPersistence = DataPersistence<Card>(filename: "card.plist")
     
-    private var savedCard = [Card]() {
+    private var searchCards = [Card]() {
         didSet {
             DispatchQueue.main.async {
                 self.searchView.collectionView.reloadData()
@@ -42,7 +42,7 @@ class SearchController: UIViewController {
             case .failure(let appError):
                 print("\(appError)")
             case .success(let card):
-                self?.savedCard = card
+                self?.searchCards = card
             }
         }
     }
@@ -50,14 +50,14 @@ class SearchController: UIViewController {
 
 extension SearchController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return savedCard.count
+        return searchCards.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "savedCell", for: indexPath) as? SearchCardCell else {
             fatalError("could not downcast SearchCardCell")
         }
-        let savedCell = savedCard[indexPath.row]
+        let savedCell = searchCards[indexPath.row]
         cell.configureCell(for: savedCell)
         cell.backgroundColor = .white
         return cell
@@ -87,7 +87,7 @@ extension SearchController: SearchSavedCellDelegate {
     }
     
     private func deleteArticle(_ card: Card) {
-        guard let index = savedCard.firstIndex(of: card) else {
+        guard let index = searchCards.firstIndex(of: card) else {
             return
         }
         do {
