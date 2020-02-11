@@ -34,13 +34,10 @@ class SearchController: UIViewController {
     }
     
     private func getCards() {
-        CardAPIClient.getCards { [weak self] (result) in
-            switch result {
-            case .failure(let appError):
-                print("\(appError)")
-            case .success(let cards):
-                self?.savedCard = cards
-            }
+        do {
+            savedCard = try CardLocalClient.getCardsLocal()
+        } catch {
+            print("could not get locally")
         }
     }
 }

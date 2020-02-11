@@ -20,20 +20,23 @@ class SearchCardCell: UICollectionViewCell {
         let label = UILabel()
         label.font = UIFont.preferredFont(forTextStyle: .title2)
         label.text = "QUESTION QUESTINO QUESTION QUESITON"
+        label.numberOfLines = 0
         return label
     }()
     
     private lazy var description1: UILabel = {
         let label = UILabel()
         label.font = UIFont.preferredFont(forTextStyle: .title2)
-        label.text = "DESCRIPTION DESCRIPTION DESCRIPTION DESCRIPTION DESCRIPTION DESCRIPTION"
+        label.text = "DESCRIPTION"
+        label.numberOfLines = 0
         return label
     }()
     
     private lazy var description2: UILabel = {
         let label = UILabel()
         label.font = UIFont.preferredFont(forTextStyle: .title2)
-        label.text = "DESCRIPTION DESCRIPTION DESCRIPTION DESCRIPTION DESCRIPTION DESCRIPTION"
+        label.text = "DESCRIPTION"
+        label.numberOfLines = 0
         return label
     }()
     
@@ -68,14 +71,6 @@ class SearchCardCell: UICollectionViewCell {
             print("long pressed")
             return
         }
-        
-        descriptionShowing.toggle()
-        func cell(for savedCard: Card) {
-                animate()
-                titleLabel.text = savedCard.cardTitle
-                description1.text = savedCard.facts.first
-                description2.text = savedCard.facts.last
-            }
     }
     
     private func animate() {
