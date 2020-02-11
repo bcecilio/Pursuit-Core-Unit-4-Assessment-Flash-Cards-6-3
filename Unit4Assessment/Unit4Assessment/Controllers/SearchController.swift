@@ -12,7 +12,13 @@ class SearchController: UIViewController {
     
     private let searchView = SearchCardsView()
     
-    private var savedCard = [Card]()
+    private var savedCard = [Card]() {
+        didSet {
+            DispatchQueue.main.async {
+                self.searchView.collectionView.reloadData()
+            }
+        }
+    }
     
     override func loadView() {
         view = searchView
@@ -24,6 +30,7 @@ class SearchController: UIViewController {
         searchView.collectionView.delegate = self
         searchView.collectionView.dataSource = self
         searchView.collectionView.register(SearchCardCell.self, forCellWithReuseIdentifier: "savedCell")
+        getCards()
     }
     
     private func getCards() {
@@ -49,6 +56,17 @@ extension SearchController: UICollectionViewDelegateFlowLayout, UICollectionView
         }
         let savedCell = savedCard[indexPath.row]
         cell.configureCell(for: savedCell)
+        cell.backgroundColor = .white
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let maxSize: CGSize = UIScreen.main.bounds.size
+        let spacingBetweenItems: CGFloat = 10
+        let numberOfItems: CGFloat = 1
+        let itemHeight:CGFloat = maxSize.height * 0.30
+        let totalSpacing: CGFloat = (2 * spacingBetweenItems) + (numberOfItems - 1 ) * spacingBetweenItems
+        let itemWidth: CGFloat = (maxSize.width - totalSpacing) / numberOfItems
+        return CGSize(width: itemWidth, height: itemHeight)
     }
 }

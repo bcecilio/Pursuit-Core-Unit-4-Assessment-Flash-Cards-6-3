@@ -37,6 +37,14 @@ class SearchCardCell: UICollectionViewCell {
         return label
     }()
     
+    private lazy var longPressGesture: UILongPressGestureRecognizer = {
+        let gesture = UILongPressGestureRecognizer()
+        gesture.addTarget(self, action: #selector(didLongPress(_:)))
+        return gesture
+    }()
+    
+    private var descriptionShowing = false
+    
     override init(frame: CGRect) {
         super.init(frame: UIScreen.main.bounds)
         commonInit()
@@ -52,6 +60,39 @@ class SearchCardCell: UICollectionViewCell {
         setupTitle()
         setupDescription1()
         setupDescription2()
+        addGestureRecognizer(longPressGesture)
+    }
+    
+    @objc private func didLongPress(_ gesture: UILongPressGestureRecognizer) {
+        if gesture.state == .began || gesture.state == .changed {
+            print("long pressed")
+            return
+        }
+        
+        descriptionShowing.toggle()
+        func cell(for savedCard: Card) {
+                animate()
+                titleLabel.text = savedCard.cardTitle
+                description1.text = savedCard.facts.first
+                description2.text = savedCard.facts.last
+            }
+    }
+    
+    private func animate() {
+        let duration: Double = 0.8
+        if descriptionShowing {
+            UIView.transition(with: self, duration: duration, options: [.transitionFlipFromRight], animations: {
+                self.titleLabel.alpha = 1.0
+                self.description1.alpha = 0.0
+                self.description2.alpha = 0.0
+            }, completion: nil)
+        } else {
+            UIView.transition(with: self, duration: duration, options: [.transitionFlipFromRight], animations: {
+                self.titleLabel.alpha = 0.0
+                self.description1.alpha = 1.0
+                self.description2.alpha = 1.0
+            }, completion: nil)
+        }
     }
     
     private func setupButton() {
@@ -91,7 +132,7 @@ class SearchCardCell: UICollectionViewCell {
         addSubview(description2)
         description2.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            description2.topAnchor.constraint(equalTo: saveButton.bottomAnchor),
+            description2.topAnchor.constraint(equalTo: description1.bottomAnchor, constant: 20),
             description2.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 30),
             description2.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 30),
             description2.bottomAnchor.constraint(equalTo: bottomAnchor)
