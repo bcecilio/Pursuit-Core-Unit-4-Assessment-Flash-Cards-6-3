@@ -12,7 +12,7 @@ class CreateCardController: UIViewController {
     
     private let createCardView = CreateCardsView()
     
-    private var originalConstraint: NSLayoutConstraint!
+    private var originalConstraint: [NSLayoutConstraint]!
     private var keyboardIsVisible = false
     
     override func loadView() {
@@ -25,33 +25,33 @@ class CreateCardController: UIViewController {
         createCardView.titleTextField.delegate = self
         createCardView.description2Field.delegate = self
         createCardView.description1Field.delegate = self
+        registerForKeyboardNotifications()
     }
     
-//    private func registerForKeyboardNotifications() {
-//        NotificationCenter.default.addObserver(self, selector: #selector(), name: UIResponder.keyboardWillShowNotification, object: nil)
-//
-//        NotificationCenter.default.addObserver(self, selector: #selector(), name: UIResponder.keyboardWillHideNotification, object: nil)
-//    }
-//
-//    private func unregisterForKeyBoardNotifications() {
-//        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
-//        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
-//    }
-//
-//    private func moveKeyboardUP(_ height: CGFloat) {
-//        if keyboardIsVisible {return}
-//        originalConstraint = createCardView.titleTextField
-//        stackViewYConstraint.constant -= (height * 0.20)
-//        UIView.animate(withDuration: 0.3) {
-//            self.view.layoutIfNeeded()
-//        }
-//        keyboardIsVisible = true
-//    }
-//
-//    private func resetUI() {
-//        keyboardIsVisible = false
-//        stackViewYConstraint.constant = 0
-//    }
+    private func registerForKeyboardNotifications() {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+
+    private func unregisterForKeyBoardNotifications() {
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+   @objc func keyboardWillShow(notification: NSNotification) {
+    if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            if view.frame.origin.y == 0 {
+                self.view.frame.origin.y -= keyboardSize.height
+            }
+        }
+    }
+
+    @objc func keyboardWillHide(notification: NSNotification) {
+        if view.frame.origin.y != 0 {
+            self.view.frame.origin.y = 0
+        }
+    }
 }
 
 extension CreateCardController: UITextFieldDelegate {
