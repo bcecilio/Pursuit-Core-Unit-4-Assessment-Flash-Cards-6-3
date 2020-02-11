@@ -23,6 +23,8 @@
 		B7C7B92E23F2FA160052DC31 /* CardsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C7B92D23F2FA160052DC31 /* CardsController.swift */; };
 		B7C7B93023F2FD6E0052DC31 /* InitialVCCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C7B92F23F2FD6E0052DC31 /* InitialVCCardCell.swift */; };
 		B7C7B93223F2FD890052DC31 /* SearchCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C7B93123F2FD890052DC31 /* SearchCardCell.swift */; };
+		B7C7B93523F310FA0052DC31 /* CardAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C7B93423F310FA0052DC31 /* CardAPIClient.swift */; };
+		B7C7B93723F311800052DC31 /* CardData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C7B93623F311800052DC31 /* CardData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +57,8 @@
 		B7C7B92D23F2FA160052DC31 /* CardsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsController.swift; sourceTree = "<group>"; };
 		B7C7B92F23F2FD6E0052DC31 /* InitialVCCardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialVCCardCell.swift; sourceTree = "<group>"; };
 		B7C7B93123F2FD890052DC31 /* SearchCardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCardCell.swift; sourceTree = "<group>"; };
+		B7C7B93423F310FA0052DC31 /* CardAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardAPIClient.swift; sourceTree = "<group>"; };
+		B7C7B93623F311800052DC31 /* CardData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,12 +101,13 @@
 		5790239623F2EE39000AA216 /* Unit4Assessment */ = {
 			isa = PBXGroup;
 			children = (
-				B7C7B92F23F2FD6E0052DC31 /* InitialVCCardCell.swift */,
-				B7C7B93123F2FD890052DC31 /* SearchCardCell.swift */,
+				B7C7B93323F310EA0052DC31 /* Cells */,
 				B7C7B92923F2F99A0052DC31 /* Views */,
 				B7C7B92223F2F9320052DC31 /* Controllers */,
 				B7C7B91B23F2F88D0052DC31 /* Supporting Files */,
 				579023A523F2EE3B000AA216 /* Info.plist */,
+				B7C7B93423F310FA0052DC31 /* CardAPIClient.swift */,
+				B7C7B93623F311800052DC31 /* CardData.swift */,
 			);
 			path = Unit4Assessment;
 			sourceTree = "<group>";
@@ -147,6 +152,15 @@
 				B7C7B92723F2F9920052DC31 /* SearchCardsView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		B7C7B93323F310EA0052DC31 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				B7C7B92F23F2FD6E0052DC31 /* InitialVCCardCell.swift */,
+				B7C7B93123F2FD890052DC31 /* SearchCardCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -258,6 +272,8 @@
 				B7C7B92423F2F9740052DC31 /* CardsView.swift in Sources */,
 				5790239C23F2EE39000AA216 /* ViewController.swift in Sources */,
 				B7C7B92123F2F9130052DC31 /* SearchController.swift in Sources */,
+				B7C7B93723F311800052DC31 /* CardData.swift in Sources */,
+				B7C7B93523F310FA0052DC31 /* CardAPIClient.swift in Sources */,
 				B7C7B93223F2FD890052DC31 /* SearchCardCell.swift in Sources */,
 				5790239823F2EE39000AA216 /* AppDelegate.swift in Sources */,
 				B7C7B93023F2FD6E0052DC31 /* InitialVCCardCell.swift in Sources */,
