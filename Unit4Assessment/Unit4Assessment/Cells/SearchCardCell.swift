@@ -55,7 +55,7 @@ class SearchCardCell: UICollectionViewCell {
     
     weak var delegate: SearchSavedCellDelegate?
     
-    private var selectedCard: Card!
+    public var selectedCard: Card!
     
     override init(frame: CGRect) {
         super.init(frame: UIScreen.main.bounds)

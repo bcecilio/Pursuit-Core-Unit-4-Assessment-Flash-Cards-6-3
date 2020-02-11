@@ -7,8 +7,11 @@
 //
 
 import UIKit
+import DataPersistence
 
 class TabBarControllerViewController: UITabBarController {
+    
+    private var dataPersistence = DataPersistence<Card>(filename: "savedCards.plist")
     
     lazy private var cardController: CardsController = {
         let VC = CardsController()

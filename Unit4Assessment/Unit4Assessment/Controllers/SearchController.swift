@@ -58,6 +58,7 @@ extension SearchController: UICollectionViewDelegateFlowLayout, UICollectionView
             fatalError("could not downcast SearchCardCell")
         }
         let savedCell = searchCards[indexPath.row]
+        cell.selectedCard = searchCards[indexPath.row]
         cell.configureCell(for: savedCell)
         cell.backgroundColor = .white
         cell.delegate = self
@@ -79,7 +80,7 @@ extension SearchController: SearchSavedCellDelegate {
     func didSelectMoreButton(_ savedCell: SearchCardCell, card: Card) {
         let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
-        let deleteAction = UIAlertAction(title: "Save", style: .destructive) { alertAction in
+        let deleteAction = UIAlertAction(title: "Save", style: .default) { alertAction in
             self.saveCard(card)
         }
         alertController.addAction(cancelAction)
@@ -88,9 +89,6 @@ extension SearchController: SearchSavedCellDelegate {
     }
     
     private func saveCard(_ card: Card) {
-        guard searchCards.firstIndex(of: card) != nil else {
-            return
-        }
         do {
             try dataPersistence.createItem(card)
         } catch {
