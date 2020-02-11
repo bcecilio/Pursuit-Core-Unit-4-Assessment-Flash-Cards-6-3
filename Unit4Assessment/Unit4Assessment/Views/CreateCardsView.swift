@@ -10,7 +10,7 @@ import UIKit
 
 class CreateCardsView: UIView {
 
-    private lazy var titleTextField: UITextField = {
+    public lazy var titleTextField: UITextField = {
         let field = UITextField()
         field.placeholder = "Enter Question"
         field.textAlignment = .center
@@ -18,16 +18,16 @@ class CreateCardsView: UIView {
         return field
     }()
     
-    private lazy var description1Field: UITextField = {
+    public lazy var description1Field: UITextField = {
         let field = UITextField()
-        field.placeholder = "Enter Description 1"
+        field.placeholder = "Enter Description"
         field.borderStyle = .roundedRect
         return field
     }()
     
-    private lazy var description2Field: UITextField = {
+    public lazy var description2Field: UITextField = {
         let field = UITextField()
-        field.placeholder = "Enter Description 2"
+        field.placeholder = "Enter Description"
         field.borderStyle = .roundedRect
         return field
     }()
