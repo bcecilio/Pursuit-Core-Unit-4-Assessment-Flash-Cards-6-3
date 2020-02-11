@@ -12,6 +12,9 @@ class CreateCardController: UIViewController {
     
     private let createCardView = CreateCardsView()
     
+    private var originalConstraint: NSLayoutConstraint!
+    private var keyboardIsVisible = false
+    
     override func loadView() {
         view = createCardView
     }
@@ -23,6 +26,32 @@ class CreateCardController: UIViewController {
         createCardView.description2Field.delegate = self
         createCardView.description1Field.delegate = self
     }
+    
+//    private func registerForKeyboardNotifications() {
+//        NotificationCenter.default.addObserver(self, selector: #selector(), name: UIResponder.keyboardWillShowNotification, object: nil)
+//
+//        NotificationCenter.default.addObserver(self, selector: #selector(), name: UIResponder.keyboardWillHideNotification, object: nil)
+//    }
+//
+//    private func unregisterForKeyBoardNotifications() {
+//        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
+//        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
+//    }
+//
+//    private func moveKeyboardUP(_ height: CGFloat) {
+//        if keyboardIsVisible {return}
+//        originalConstraint = createCardView.titleTextField
+//        stackViewYConstraint.constant -= (height * 0.20)
+//        UIView.animate(withDuration: 0.3) {
+//            self.view.layoutIfNeeded()
+//        }
+//        keyboardIsVisible = true
+//    }
+//
+//    private func resetUI() {
+//        keyboardIsVisible = false
+//        stackViewYConstraint.constant = 0
+//    }
 }
 
 extension CreateCardController: UITextFieldDelegate {

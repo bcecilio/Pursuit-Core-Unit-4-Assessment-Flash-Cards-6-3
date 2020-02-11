@@ -9,6 +9,19 @@
 import UIKit
 
 class CreateCardsView: UIView {
+    
+    public lazy var stackView: UIStackView = {
+        let SV = UIStackView()
+        SV.addArrangedSubview(titleTextField)
+        SV.addArrangedSubview(description1Field)
+        SV.addArrangedSubview(description2Field)
+        SV.addArrangedSubview(createButton)
+        SV.alignment = .center
+        SV.axis = .vertical
+        SV.distribution = .equalSpacing
+        SV.spacing = 20
+        return SV
+    }()
 
     public lazy var titleTextField: UITextField = {
         let field = UITextField()
@@ -53,47 +66,49 @@ class CreateCardsView: UIView {
         setupDescription1()
         setupDescription2()
         setupCreateButton()
+        setupStackView()
     }
     
+    private func setupStackView() {
+        addSubview(stackView)
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            stackView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 250),
+            stackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
+            stackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20)
+        ])
+    }
     private func setupQuestionField() {
         addSubview(titleTextField)
         titleTextField.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            titleTextField.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 210),
-            titleTextField.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
-            titleTextField.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20)
+            titleTextField.widthAnchor.constraint(equalToConstant: 450)
         ])
     }
-    
+
     private func setupDescription1() {
         addSubview(description1Field)
         description1Field.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            description1Field.topAnchor.constraint(equalTo: titleTextField.bottomAnchor, constant: 10),
-            description1Field.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
-            description1Field.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
-            description1Field.heightAnchor.constraint(equalToConstant: 150)
+            description1Field.widthAnchor.constraint(equalToConstant: 450),
+            description1Field.heightAnchor.constraint(equalToConstant: 120)
         ])
     }
-    
+
     private func setupDescription2() {
         addSubview(description2Field)
         description2Field.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            description2Field.topAnchor.constraint(equalTo: description1Field.bottomAnchor, constant: 10),
-            description2Field.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
-            description2Field.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
-            description2Field.heightAnchor.constraint(equalToConstant: 150)
+            description2Field.widthAnchor.constraint(equalToConstant: 450),
+            description2Field.heightAnchor.constraint(equalToConstant: 120)
         ])
     }
-    
+//
     private func setupCreateButton() {
         addSubview(createButton)
         createButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            createButton.topAnchor.constraint(equalTo: description2Field.bottomAnchor, constant: 30),
-            createButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 150),
-            createButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -150)
+            createButton.widthAnchor.constraint(equalToConstant: 80)
         ])
-    }
+}
 }
