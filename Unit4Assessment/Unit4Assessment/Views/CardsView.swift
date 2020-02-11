@@ -14,7 +14,6 @@ class CardsView: UIView {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
         let collection = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
-        collection.backgroundColor = .systemGroupedBackground
         return collection
     }()
     

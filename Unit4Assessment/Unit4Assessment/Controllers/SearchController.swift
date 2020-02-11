@@ -12,7 +12,7 @@ class SearchController: UIViewController {
     
     private let searchView = SearchCardsView()
     
-    private var cardData = [Card]()
+    private var savedCard = [Card]()
     
     override func loadView() {
         view = searchView
@@ -21,6 +21,9 @@ class SearchController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = #colorLiteral(red: 0.9568627477, green: 0.6588235497, blue: 0.5450980663, alpha: 1)
+        searchView.collectionView.delegate = self
+        searchView.collectionView.dataSource = self
+        searchView.collectionView.register(SearchCardCell.self, forCellWithReuseIdentifier: "savedCell")
     }
     
     private func getCards() {
@@ -29,8 +32,23 @@ class SearchController: UIViewController {
             case .failure(let appError):
                 print("\(appError)")
             case .success(let cards):
-                self?.cardData = cards
+                self?.savedCard = cards
             }
         }
+    }
+}
+
+extension SearchController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return savedCard.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "savedCell", for: indexPath) as? SearchCardCell else {
+            fatalError("could not downcast SearchCardCell")
+        }
+        let savedCell = savedCard[indexPath.row]
+        cell.configureCell(for: savedCell)
+        return cell
     }
 }
