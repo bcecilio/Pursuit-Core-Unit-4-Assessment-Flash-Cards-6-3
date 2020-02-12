@@ -13,17 +13,25 @@ class CardsController: UIViewController {
     
     private let initalView = CardsView()
     
-    public var dataPersistence = DataPersistence<Card>(filename: "savedCard.plist")
+    public var savedPersistence = DataPersistence<Card>(filename: "card.plist")
+    //public var dataPersistence: DataPersistence<Card>!
     
     public var savedCards = [Card]() {
         didSet {
+            appendToCollectionView()
             initalView.collectionView.reloadData()
-            print("there are \(savedCards.count) articles")
+            print("there are \(savedCards.count) cards")
             if savedCards.isEmpty {
-                initalView.collectionView.backgroundView = EmptyView(title: "Saved Articles", message: "There are currently no saved articles. Start browsing or Create a new card!")
+                initalView.collectionView.backgroundView = EmptyView(title: "Saved Cards", message: "There are currently no saved Cards. Start browsing or Create a new Card!")
             } else {
                 initalView.collectionView.backgroundView = nil
             }
+        }
+    }
+    
+    public var selectedImageInitial: Card? {
+        didSet {
+            appendToCollectionView()
         }
     }
     
@@ -37,6 +45,7 @@ class CardsController: UIViewController {
         initalView.collectionView.dataSource = self
         initalView.collectionView.delegate = self
         initalView.collectionView.register(InitialVCCardCell.self, forCellWithReuseIdentifier: "cardCell")
+        loadSavedCards()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -46,9 +55,21 @@ class CardsController: UIViewController {
     
     private func loadSavedCards() {
         do {
-            savedCards = try dataPersistence.loadItems()
+            savedCards = try savedPersistence.loadItems()
         } catch {
             print("could not load saved items: \(error)")
+        }
+    }
+    
+    private func appendToCollectionView() {
+        guard let initialCard = selectedImageInitial else {
+            print("no card found initialVC")
+            return
+        }
+        do {
+            try savedPersistence.createItem(initialCard)
+        } catch {
+            print("saving error: \(error)")
         }
     }
 }
@@ -112,7 +133,7 @@ extension CardsController: MainVCCellDelegate {
             return
         }
         do {
-            try dataPersistence.deleteItem(at: index)
+            try savedPersistence.deleteItem(at: index)
         } catch {
             print("error deleting article: \(error)")
         }

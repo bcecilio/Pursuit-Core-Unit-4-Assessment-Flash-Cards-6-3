@@ -66,7 +66,7 @@ class CreateCardsView: UIView {
     
     public var delegateCard: CreateCardDelegate?
     
-    public var textPersistence: DataPersistence<TextObject>?
+    public var textPersistence: DataPersistence<Card>?
     
     override init(frame: CGRect) {
         super.init(frame: UIScreen.main.bounds)
@@ -139,22 +139,17 @@ class CreateCardsView: UIView {
     }
     
     @objc private func createCard() {
-        guard let title = titleTextField.text else {
-            print("no text found")
-            return
-        }
-        guard let description1 = description1Field.text else {
-            print("no text found in description")
-            return
-        }
-        createdCard2 = TextObject(title: title, descrition1: description1)
-        delegateCard?.createCard(createdCard2!, description1: createdCard2!)
+        if titleTextField.text!.isEmpty || description1Field.text!.isEmpty || description2Field.text!.isEmpty {
+            print("text fields are empty")
+        } else {
+            let newCard = Card(id: "2", cardTitle: titleTextField.text!, facts: [description1Field.text!, description2Field.text!])
         do {
-            try? textPersistence?.createItem(createdCard2!)
+            try? textPersistence?.createItem(newCard)
             print("item created")
         } catch {
             print("could not create card: \(error)")
         }
+    }
     }
     
     private func cancelCreateCard() {

@@ -17,7 +17,7 @@ class CreateCardController: UIViewController {
     
     private let createCardView = CreateCardsView()
     
-    private var textPersistence = DataPersistence<Card>(filename: "savedCard.plist")
+    private var textPersistence = DataPersistence<Card>(filename: "card.plist")
     
     public var createdCard: TextObject?
     

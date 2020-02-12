@@ -72,13 +72,13 @@ class InitialVCCardCell: UICollectionViewCell {
        }
     
     @objc private func didLongPress(_ gesture: UILongPressGestureRecognizer) {
-        guard let currentCard = selectedCard2 else {return}
+        guard selectedCard2 != nil else {return}
         if gesture.state == .began || gesture.state == .changed {
             print("long pressed")
             return
         }
         descriptionShowing.toggle()
-        description1.text = selectedCard2.facts.description
+        description1.text = selectedCard2.facts.first
         animate()
     }
     
