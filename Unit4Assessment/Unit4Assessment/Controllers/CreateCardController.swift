@@ -22,6 +22,7 @@ class CreateCardController: UIViewController {
     public var createdCard: TextObject?
     
     private var originalConstraint: [NSLayoutConstraint]!
+    
     private var keyboardIsVisible = false
     
     override func loadView() {

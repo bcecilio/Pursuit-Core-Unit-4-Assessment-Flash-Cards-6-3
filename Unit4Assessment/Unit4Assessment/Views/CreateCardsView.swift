@@ -151,6 +151,7 @@ class CreateCardsView: UIView {
         delegateCard?.createCard(createdCard2!, description1: createdCard2!)
         do {
             try? textPersistence?.createItem(createdCard2!)
+            print("item created")
         } catch {
             print("could not create card: \(error)")
         }

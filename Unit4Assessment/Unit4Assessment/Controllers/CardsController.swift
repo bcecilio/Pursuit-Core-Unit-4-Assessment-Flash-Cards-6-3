@@ -13,7 +13,7 @@ class CardsController: UIViewController {
     
     private let initalView = CardsView()
     
-    public var dataPersistence: DataPersistence<Card>!
+    public var dataPersistence = DataPersistence<Card>(filename: "savedCard.plist")
     
     public var savedCards = [Card]() {
         didSet {
@@ -34,10 +34,14 @@ class CardsController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = #colorLiteral(red: 0.721568644, green: 0.8862745166, blue: 0.5921568871, alpha: 1)
-//        loadSavedCards()
         initalView.collectionView.dataSource = self
         initalView.collectionView.delegate = self
         initalView.collectionView.register(InitialVCCardCell.self, forCellWithReuseIdentifier: "cardCell")
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        // loadSavedCards()
     }
     
     private func loadSavedCards() {

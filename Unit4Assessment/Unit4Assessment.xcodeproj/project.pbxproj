@@ -17,6 +17,7 @@
 		B71A411123F32B6300CB8208 /* card.json in Resources */ = {isa = PBXBuildFile; fileRef = B71A411023F32B6300CB8208 /* card.json */; };
 		B71A411523F33F1F00CB8208 /* CardLocalClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B71A411423F33F1F00CB8208 /* CardLocalClient.swift */; };
 		B71A411723F353AE00CB8208 /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B71A411623F353AE00CB8208 /* EmptyView.swift */; };
+		B73D70BB23F477A00042D9BF /* UIAlerts+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73D70BA23F477A00042D9BF /* UIAlerts+Extensions.swift */; };
 		B7C7B91D23F2F8C20052DC31 /* TabBarControllerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C7B91C23F2F8C20052DC31 /* TabBarControllerViewController.swift */; };
 		B7C7B91F23F2F8DE0052DC31 /* CreateCardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C7B91E23F2F8DE0052DC31 /* CreateCardController.swift */; };
 		B7C7B92123F2F9130052DC31 /* SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C7B92023F2F9130052DC31 /* SearchController.swift */; };
@@ -56,6 +57,7 @@
 		B71A411023F32B6300CB8208 /* card.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = card.json; sourceTree = "<group>"; };
 		B71A411423F33F1F00CB8208 /* CardLocalClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardLocalClient.swift; sourceTree = "<group>"; };
 		B71A411623F353AE00CB8208 /* EmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyView.swift; sourceTree = "<group>"; };
+		B73D70BA23F477A00042D9BF /* UIAlerts+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlerts+Extensions.swift"; sourceTree = "<group>"; };
 		B7C7B91C23F2F8C20052DC31 /* TabBarControllerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarControllerViewController.swift; sourceTree = "<group>"; };
 		B7C7B91E23F2F8DE0052DC31 /* CreateCardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCardController.swift; sourceTree = "<group>"; };
 		B7C7B92023F2F9130052DC31 /* SearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchController.swift; sourceTree = "<group>"; };
@@ -114,6 +116,7 @@
 				B71A411423F33F1F00CB8208 /* CardLocalClient.swift */,
 				B7C7B93623F311800052DC31 /* CardData.swift */,
 				B71231A723F43AF100EAE283 /* TextModel.swift */,
+				B73D70BA23F477A00042D9BF /* UIAlerts+Extensions.swift */,
 				B7C7B93323F310EA0052DC31 /* Cells */,
 				B7C7B92923F2F99A0052DC31 /* Views */,
 				B7C7B92223F2F9320052DC31 /* Controllers */,
@@ -296,6 +299,7 @@
 				B7C7B91D23F2F8C20052DC31 /* TabBarControllerViewController.swift in Sources */,
 				B71231A823F43AF100EAE283 /* TextModel.swift in Sources */,
 				B7C7B92823F2F9920052DC31 /* SearchCardsView.swift in Sources */,
+				B73D70BB23F477A00042D9BF /* UIAlerts+Extensions.swift in Sources */,
 				B71A411523F33F1F00CB8208 /* CardLocalClient.swift in Sources */,
 				5790239A23F2EE39000AA216 /* SceneDelegate.swift in Sources */,
 				B7C7B92E23F2FA160052DC31 /* CardsController.swift in Sources */,
