@@ -25,6 +25,8 @@ class CreateCardController: UIViewController {
     
     public var delegatCreate: CreateCardDelegate?
     
+    public var createdCard: Card!
+    
     override func loadView() {
         view = createCardView
     }

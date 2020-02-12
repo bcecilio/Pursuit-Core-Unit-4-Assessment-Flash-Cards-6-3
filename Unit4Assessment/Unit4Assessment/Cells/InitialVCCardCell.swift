@@ -51,6 +51,12 @@ class InitialVCCardCell: UICollectionViewCell {
         return label
     }()
     
+    private lazy var longPressGesture: UILongPressGestureRecognizer = {
+        let gesture = UILongPressGestureRecognizer()
+        gesture.addTarget(self, action: #selector(didLongPress(_:)))
+        return gesture
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: UIScreen.main.bounds)
         commonInit()
@@ -62,6 +68,7 @@ class InitialVCCardCell: UICollectionViewCell {
     }
     
     private func commonInit() {
+        addGestureRecognizer(longPressGesture)
         setupButton()
         setupTitle()
         setupDescription1()

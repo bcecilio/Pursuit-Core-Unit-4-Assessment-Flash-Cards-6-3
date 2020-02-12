@@ -14,7 +14,6 @@ class CardsController: UIViewController {
     private let initalView = CardsView()
     
     public var savedPersistence = DataPersistence<Card>(filename: "card.plist")
-    //public var dataPersistence: DataPersistence<Card>!
     
     public var savedCards = [Card]() {
         didSet {
@@ -29,7 +28,7 @@ class CardsController: UIViewController {
         }
     }
     
-    public var selectedImageInitial: Card? {
+    public var selectedCardInitial: Card? {
         didSet {
             appendToCollectionView()
         }
@@ -62,7 +61,7 @@ class CardsController: UIViewController {
     }
     
     private func appendToCollectionView() {
-        guard let initialCard = selectedImageInitial else {
+        guard let initialCard = selectedCardInitial else {
             print("no card found initialVC")
             return
         }
@@ -128,7 +127,7 @@ extension CardsController: MainVCCellDelegate {
         present(alertController, animated: true)
     }
     
-    private func deleteArticle(_ card: Card) {
+    public func deleteArticle(_ card: Card) {
         guard let index = savedCards.firstIndex(of: card) else {
             return
         }
