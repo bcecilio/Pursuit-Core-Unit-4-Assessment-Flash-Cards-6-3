@@ -47,8 +47,8 @@ class CardsController: UIViewController {
         loadSavedCards()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(true)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
          loadSavedCards()
     }
     
@@ -120,14 +120,14 @@ extension CardsController: MainVCCellDelegate {
         let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
         let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { alertAction in
-            self.deleteArticle(card)
+            self.deleteCard(card)
         }
         alertController.addAction(cancelAction)
         alertController.addAction(deleteAction)
         present(alertController, animated: true)
     }
     
-    public func deleteArticle(_ card: Card) {
+    public func deleteCard(_ card: Card) {
         guard let index = savedCards.firstIndex(of: card) else {
             return
         }
@@ -138,3 +138,11 @@ extension CardsController: MainVCCellDelegate {
         }
     }
 }
+
+//extension CardsController: CreateCardDelegate {
+//    func createCard(_ card: Card) {
+//
+//    }
+    
+    
+//}
