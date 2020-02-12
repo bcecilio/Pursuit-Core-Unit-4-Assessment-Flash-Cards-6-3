@@ -8,7 +8,13 @@
 
 import UIKit
 
+protocol CardCellDelegate: AnyObject {
+    func didSelectMoreButton(_ cardCell: InitialVCCardCell, card: Card)
+}
+
 class InitialVCCardCell: UICollectionViewCell {
+    
+    public var delegate2: CardCellDelegate?
     
     private lazy var saveButton: UIButton = {
         let button = UIButton()

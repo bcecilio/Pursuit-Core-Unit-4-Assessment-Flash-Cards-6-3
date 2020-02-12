@@ -91,6 +91,7 @@ extension SearchController: SearchSavedCellDelegate {
     private func saveCard(_ card: Card) {
         do {
             try dataPersistence.createItem(card)
+            print("item was saved")
         } catch {
             print("error deleting article: \(error)")
         }
