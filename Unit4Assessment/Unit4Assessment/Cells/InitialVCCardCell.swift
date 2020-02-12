@@ -23,6 +23,7 @@ class InitialVCCardCell: UICollectionViewCell {
     private lazy var saveButton: UIButton = {
         let button = UIButton()
         button.setImage(UIImage(systemName: "ellipsis.circle"), for: .normal)
+        button.addTarget(self, action: #selector(buttonPressed(_:)), for: .touchUpInside)
         return button
     }()
     

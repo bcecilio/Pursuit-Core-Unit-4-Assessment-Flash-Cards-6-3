@@ -80,11 +80,11 @@ extension SearchController: SearchSavedCellDelegate {
     func didSelectMoreButton(_ savedCell: SearchCardCell, card: Card) {
         let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
-        let deleteAction = UIAlertAction(title: "Save", style: .default) { alertAction in
+        let saveAction = UIAlertAction(title: "Save", style: .default) { alertAction in
             self.saveCard(card)
         }
         alertController.addAction(cancelAction)
-        alertController.addAction(deleteAction)
+        alertController.addAction(saveAction)
         present(alertController, animated: true)
     }
     

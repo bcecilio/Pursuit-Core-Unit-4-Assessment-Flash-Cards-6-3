@@ -10,7 +10,7 @@ import UIKit
 import DataPersistence
 
 protocol CreateCardDelegate: AnyObject {
-    func createCard(_ title: TextObject, description1: TextObject)
+    func createCard(_ card: Card)
 }
 
 class CreateCardController: UIViewController {
@@ -19,11 +19,11 @@ class CreateCardController: UIViewController {
     
     private var textPersistence = DataPersistence<Card>(filename: "card.plist")
     
-    public var createdCard: TextObject?
-    
     private var originalConstraint: [NSLayoutConstraint]!
     
     private var keyboardIsVisible = false
+    
+    public var delegatCreate: CreateCardDelegate?
     
     override func loadView() {
         view = createCardView
@@ -95,5 +95,20 @@ extension CreateCardController: UITextFieldDelegate {
             return true
         }
         return false
+    }
+}
+
+extension CreateCardController: CreateCardDelegate {
+    func createCard(_ card: Card) {
+        self.saveCard(card)
+    }
+    
+    private func saveCard(_ card: Card) {
+        do {
+            try textPersistence.createItem(card)
+            print("item was saved")
+        } catch {
+            print("error deleting article: \(error)")
+        }
     }
 }
