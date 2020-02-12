@@ -51,6 +51,7 @@ class CreateCardsView: UIView {
         let button = UIButton()
         button.setTitle("Create Card", for: .normal)
         button.backgroundColor = .systemBlue
+        button.addTarget(self, action: #selector(createCard), for: .touchUpInside)
         return button
     }()
     
@@ -137,7 +138,7 @@ class CreateCardsView: UIView {
             ])
     }
     
-    private func createCard() {
+    @objc private func createCard() {
         guard let title = titleTextField.text else {
             print("no text found")
             return
