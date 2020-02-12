@@ -86,21 +86,23 @@ class SearchCardCell: UICollectionViewCell {
             return
         }
         descriptionShowing.toggle()
+        description1.text = selectedCard.facts.description
+        animate()
     }
     
     private func animate() {
-        let duration: Double = 0.8
+        let duration: Double = 0.5
         if descriptionShowing {
-            UIView.transition(with: self, duration: duration, options: [.transitionFlipFromRight], animations: {
-                self.titleLabel.alpha = 1.0
-                self.description1.alpha = 0.0
-                self.description2.alpha = 0.0
-            }, completion: nil)
-        } else {
             UIView.transition(with: self, duration: duration, options: [.transitionFlipFromRight], animations: {
                 self.titleLabel.alpha = 0.0
                 self.description1.alpha = 1.0
                 self.description2.alpha = 1.0
+            }, completion: nil)
+        } else {
+            UIView.transition(with: self, duration: duration, options: [.transitionFlipFromRight], animations: {
+                self.titleLabel.alpha = 1.0
+                self.description1.alpha = 0.0
+                self.description2.alpha = 0.0
             }, completion: nil)
         }
     }
@@ -131,7 +133,7 @@ class SearchCardCell: UICollectionViewCell {
         addSubview(description1)
         description1.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            description1.topAnchor.constraint(equalTo: saveButton.bottomAnchor),
+            description1.topAnchor.constraint(equalTo: saveButton.bottomAnchor, constant: 10),
             description1.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -30),
             description1.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 30),
             description1.bottomAnchor.constraint(equalTo: bottomAnchor)

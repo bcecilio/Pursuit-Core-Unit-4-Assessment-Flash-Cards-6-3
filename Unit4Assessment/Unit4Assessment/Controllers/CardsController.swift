@@ -20,7 +20,7 @@ class CardsController: UIViewController {
             initalView.collectionView.reloadData()
             print("there are \(savedCards.count) articles")
             if savedCards.isEmpty {
-                initalView.collectionView.backgroundView = EmptyView(title: "Saved Articles", message: "There are currently no saved articles. Start browsing by tapping on the News Icon.")
+                initalView.collectionView.backgroundView = EmptyView(title: "Saved Articles", message: "There are currently no saved articles. Start browsing or Create a new card!")
             } else {
                 initalView.collectionView.backgroundView = nil
             }
@@ -41,7 +41,7 @@ class CardsController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
-        // loadSavedCards()
+         loadSavedCards()
     }
     
     private func loadSavedCards() {
