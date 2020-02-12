@@ -8,15 +8,17 @@
 
 import UIKit
 
-protocol CardCellDelegate: AnyObject {
-    func didSelectMoreButton(_ cardCell: InitialVCCardCell, card: Card)
+protocol MainVCCellDelegate: AnyObject {
+    func didSelectMoreButton(_ searchCell: InitialVCCardCell, card: Card)
 }
 
 class InitialVCCardCell: UICollectionViewCell {
-    
-    public var delegate2: CardCellDelegate?
-    
+
     public var selectedCard2: Card!
+    
+    private var descriptionShowing = false
+    
+    weak var delegate: MainVCCellDelegate?
     
     private lazy var saveButton: UIButton = {
         let button = UIButton()
@@ -63,6 +65,38 @@ class InitialVCCardCell: UICollectionViewCell {
         setupTitle()
         setupDescription1()
         setupDescription2()
+    }
+    
+     @objc private func buttonPressed(_ sender: UIButton) {
+           delegate?.didSelectMoreButton(self, card: selectedCard2)
+       }
+    
+    @objc private func didLongPress(_ gesture: UILongPressGestureRecognizer) {
+        guard let currentCard = selectedCard2 else {return}
+        if gesture.state == .began || gesture.state == .changed {
+            print("long pressed")
+            return
+        }
+        descriptionShowing.toggle()
+        description1.text = selectedCard2.facts.description
+        animate()
+    }
+    
+    private func animate() {
+        let duration: Double = 0.5
+        if descriptionShowing {
+            UIView.transition(with: self, duration: duration, options: [.transitionFlipFromRight], animations: {
+                self.titleLabel.alpha = 0.0
+                self.description1.alpha = 1.0
+                self.description2.alpha = 1.0
+            }, completion: nil)
+        } else {
+            UIView.transition(with: self, duration: duration, options: [.transitionFlipFromRight], animations: {
+                self.titleLabel.alpha = 1.0
+                self.description1.alpha = 0.0
+                self.description2.alpha = 0.0
+            }, completion: nil)
+        }
     }
     
     private func setupButton() {

@@ -153,7 +153,5 @@ class SearchCardCell: UICollectionViewCell {
     
     public func configureCell(for searchCard: Card) {
         titleLabel.text = searchCard.cardTitle
-//        description1.text = savedCard.facts.first
-//        description2.text = savedCard.facts.last
     }
 }

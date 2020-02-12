@@ -66,7 +66,7 @@ extension CardsController: UICollectionViewDelegateFlowLayout, UICollectionViewD
         cell.configureInitialCell(for: cardCell)
         cell.selectedCard2 = savedCards[indexPath.row]
         cell.backgroundColor = .white
-        cell.delegate2 = self
+        cell.delegate = self
         return cell
     }
 
@@ -91,7 +91,7 @@ extension CardsController: DataPersistenceDelegate {
     }
 }
 
-extension CardsController: CardCellDelegate {
+extension CardsController: MainVCCellDelegate {
     func didSelectMoreButton(_ savedCell: InitialVCCardCell, card: Card) {
         print("didSelectMoreButton: \(card.cardTitle)")
         // create an action sheet
