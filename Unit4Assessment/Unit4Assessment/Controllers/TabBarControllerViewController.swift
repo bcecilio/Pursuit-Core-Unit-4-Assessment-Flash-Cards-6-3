@@ -11,7 +11,7 @@ import DataPersistence
 
 class TabBarControllerViewController: UITabBarController {
     
-    private var dataPersistence = DataPersistence<Card>(filename: "savedCards.plist")
+    private var dataPersistence = DataPersistence<Card>(filename: "card.plist")
     
     lazy private var cardController: CardsController = {
         let VC = CardsController()

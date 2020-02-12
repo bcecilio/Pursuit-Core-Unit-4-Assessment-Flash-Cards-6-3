@@ -17,7 +17,6 @@ class CardsController: UIViewController {
     
     public var savedCards = [Card]() {
         didSet {
-            appendToCollectionView()
             initalView.collectionView.reloadData()
             print("there are \(savedCards.count) cards")
             if savedCards.isEmpty {
@@ -28,9 +27,15 @@ class CardsController: UIViewController {
         }
     }
     
-    public var selectedCardInitial: Card? {
+    public var selectedCardInitial = [Card]() {
         didSet {
-            appendToCollectionView()
+            initalView.collectionView.reloadData()
+            print("there are \(selectedCardInitial.count) cards")
+            if savedCards.isEmpty {
+                initalView.collectionView.backgroundView = EmptyView(title: "Saved Cards", message: "There are currently no saved Cards. Start browsing or Create a new Card!")
+            } else {
+                initalView.collectionView.backgroundView = nil
+            }
         }
     }
     
@@ -60,17 +65,18 @@ class CardsController: UIViewController {
         }
     }
     
-    private func appendToCollectionView() {
-        guard let initialCard = selectedCardInitial else {
-            print("no card found initialVC")
-            return
-        }
-        do {
-            try savedPersistence.createItem(initialCard)
-        } catch {
-            print("saving error: \(error)")
-        }
-    }
+//    private func addCardToCollection() {
+//        addCard()
+//    }
+//
+//    private func addCard() {
+//        guard let cardVC = storyboard?.instantiateViewController(identifier: "CreateCardController") as? CreateCardController else {
+//            print("nope")
+//            return
+//        }
+//        cardVC.delegatCreate = self
+//        present(cardVC, animated: true)
+//    }
 }
 
 extension CardsController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
@@ -141,8 +147,6 @@ extension CardsController: MainVCCellDelegate {
 
 //extension CardsController: CreateCardDelegate {
 //    func createCard(_ card: Card) {
-//
+//        self.selectedCardInitial.append(card)
 //    }
-    
-    
 //}

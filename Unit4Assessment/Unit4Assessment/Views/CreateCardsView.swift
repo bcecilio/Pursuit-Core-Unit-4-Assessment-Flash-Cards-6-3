@@ -24,7 +24,7 @@ class CreateCardsView: UIView {
         SV.spacing = 20
         return SV
     }()
-
+    
     public lazy var titleTextField: UITextField = {
         let field = UITextField()
         field.placeholder = "Enter Question"
@@ -64,9 +64,9 @@ class CreateCardsView: UIView {
     
     public var createdCard2: TextObject?
     
-    public var delegateCard: CreateCardDelegate?
+//    public var delegateCard: CreateCardDelegate?
     
-    public var textPersistence: DataPersistence<Card>?
+    public var textPersistence = DataPersistence<Card>(filename: "card.plist")
     
     override init(frame: CGRect) {
         super.init(frame: UIScreen.main.bounds)
@@ -103,7 +103,7 @@ class CreateCardsView: UIView {
             titleTextField.widthAnchor.constraint(equalToConstant: 450)
         ])
     }
-
+    
     private func setupDescription1() {
         addSubview(description1Field)
         description1Field.translatesAutoresizingMaskIntoConstraints = false
@@ -112,7 +112,7 @@ class CreateCardsView: UIView {
             description1Field.heightAnchor.constraint(equalToConstant: 120)
         ])
     }
-
+    
     private func setupDescription2() {
         addSubview(description2Field)
         description2Field.translatesAutoresizingMaskIntoConstraints = false
@@ -121,21 +121,21 @@ class CreateCardsView: UIView {
             description2Field.heightAnchor.constraint(equalToConstant: 120)
         ])
     }
-//
+    //
     private func setupCreateButton() {
         addSubview(createButton)
         createButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             createButton.widthAnchor.constraint(equalToConstant: 100)
         ])
-}
+    }
     
     private func setupCancelButton() {
-            addSubview(cancelButton)
-            cancelButton.translatesAutoresizingMaskIntoConstraints = false
-            NSLayoutConstraint.activate([
-                cancelButton.widthAnchor.constraint(equalToConstant: 90)
-            ])
+        addSubview(cancelButton)
+        cancelButton.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            cancelButton.widthAnchor.constraint(equalToConstant: 90)
+        ])
     }
     
     @objc private func createCard() {
@@ -143,13 +143,13 @@ class CreateCardsView: UIView {
             print("text fields are empty")
         } else {
             let newCard = Card(id: "2", cardTitle: titleTextField.text!, facts: [description1Field.text!, description2Field.text!])
-        do {
-            try? textPersistence?.createItem(newCard)
-            print("item created")
-        } catch {
-            print("could not create card: \(error)")
+            do {
+                try? textPersistence.createItem(newCard)
+                print("item created")
+            } catch {
+                print("could not create card: \(error)")
+            }
         }
-    }
     }
     
     private func cancelCreateCard() {
