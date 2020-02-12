@@ -16,6 +16,7 @@ class CreateCardsView: UIView {
         SV.addArrangedSubview(description1Field)
         SV.addArrangedSubview(description2Field)
         SV.addArrangedSubview(createButton)
+        SV.addArrangedSubview(cancelButton)
         SV.alignment = .center
         SV.axis = .vertical
         SV.distribution = .equalSpacing
@@ -47,6 +48,14 @@ class CreateCardsView: UIView {
     
     private lazy var createButton: UIButton = {
         let button = UIButton()
+        button.setTitle("Create Card", for: .normal)
+        button.backgroundColor = .systemBlue
+        return button
+    }()
+    
+    private lazy var cancelButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("Cancel", for: .normal)
         button.backgroundColor = .systemBlue
         return button
     }()
@@ -66,6 +75,7 @@ class CreateCardsView: UIView {
         setupDescription1()
         setupDescription2()
         setupCreateButton()
+        setupCancelButton()
         setupStackView()
     }
     
@@ -108,7 +118,23 @@ class CreateCardsView: UIView {
         addSubview(createButton)
         createButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            createButton.widthAnchor.constraint(equalToConstant: 80)
+            createButton.widthAnchor.constraint(equalToConstant: 100)
         ])
 }
+    
+    private func setupCancelButton() {
+            addSubview(cancelButton)
+            cancelButton.translatesAutoresizingMaskIntoConstraints = false
+            NSLayoutConstraint.activate([
+                cancelButton.widthAnchor.constraint(equalToConstant: 90)
+            ])
+    }
+    
+    private func createCard() {
+        
+    }
+    
+    private func cancelCreateCard() {
+        
+    }
 }

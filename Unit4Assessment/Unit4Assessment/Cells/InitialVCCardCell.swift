@@ -16,6 +16,8 @@ class InitialVCCardCell: UICollectionViewCell {
     
     public var delegate2: CardCellDelegate?
     
+    public var selectedCard2: Card!
+    
     private lazy var saveButton: UIButton = {
         let button = UIButton()
         button.setImage(UIImage(systemName: "ellipsis.circle"), for: .normal)

@@ -34,7 +34,7 @@ class CardsController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = #colorLiteral(red: 0.721568644, green: 0.8862745166, blue: 0.5921568871, alpha: 1)
-        loadSavedCards()
+//        loadSavedCards()
         initalView.collectionView.dataSource = self
         initalView.collectionView.delegate = self
         initalView.collectionView.register(InitialVCCardCell.self, forCellWithReuseIdentifier: "cardCell")
@@ -60,6 +60,7 @@ extension CardsController: UICollectionViewDelegateFlowLayout, UICollectionViewD
         }
         let cardCell = savedCards[indexPath.row]
         cell.configureInitialCell(for: cardCell)
+        cell.selectedCard2 = savedCards[indexPath.row]
         cell.backgroundColor = .white
         cell.delegate2 = self
         return cell
