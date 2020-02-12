@@ -10,7 +10,7 @@ import UIKit
 import DataPersistence
 
 protocol CreateCardDelegate: AnyObject {
-    func createCard(_ title: Card, description1: Card)
+    func createCard(_ title: TextObject, description1: TextObject)
 }
 
 class CreateCardController: UIViewController {
@@ -18,6 +18,8 @@ class CreateCardController: UIViewController {
     private let createCardView = CreateCardsView()
     
     private var textPersistence = DataPersistence<Card>(filename: "savedCard.plist")
+    
+    public var createdCard: TextObject?
     
     private var originalConstraint: [NSLayoutConstraint]!
     private var keyboardIsVisible = false

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import DataPersistence
 
 class CreateCardsView: UIView {
     
@@ -59,6 +60,12 @@ class CreateCardsView: UIView {
         button.backgroundColor = .systemBlue
         return button
     }()
+    
+    public var createdCard2: TextObject?
+    
+    public var delegateCard: CreateCardDelegate?
+    
+    public var textPersistence: DataPersistence<TextObject>?
     
     override init(frame: CGRect) {
         super.init(frame: UIScreen.main.bounds)
@@ -131,7 +138,21 @@ class CreateCardsView: UIView {
     }
     
     private func createCard() {
-        
+        guard let title = titleTextField.text else {
+            print("no text found")
+            return
+        }
+        guard let description1 = description1Field.text else {
+            print("no text found in description")
+            return
+        }
+        createdCard2 = TextObject(title: title, descrition1: description1)
+        delegateCard?.createCard(createdCard2!, description1: createdCard2!)
+        do {
+            try? textPersistence?.createItem(createdCard2!)
+        } catch {
+            print("could not create card: \(error)")
+        }
     }
     
     private func cancelCreateCard() {

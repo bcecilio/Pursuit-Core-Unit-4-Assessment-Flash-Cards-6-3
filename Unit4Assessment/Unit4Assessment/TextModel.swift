@@ -8,9 +8,8 @@
 
 import Foundation
 
-struct TextObject: Codable {
+struct TextObject: Codable, Equatable {
     let title: String
     let descrition1: String
-    let description2: String
     let identifier = UUID().uuidString
 }
