@@ -86,7 +86,8 @@ class SearchCardCell: UICollectionViewCell {
             return
         }
         descriptionShowing.toggle()
-        description1.text = selectedCard.facts.description
+        description1.text = "\u{2022} \(currentCard.facts.first ?? "")"
+        description2.text = "\u{2022} \(currentCard.facts.last ?? "")"
         animate()
     }
     
@@ -135,8 +136,7 @@ class SearchCardCell: UICollectionViewCell {
         NSLayoutConstraint.activate([
             description1.topAnchor.constraint(equalTo: saveButton.bottomAnchor, constant: 10),
             description1.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -30),
-            description1.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 30),
-            description1.bottomAnchor.constraint(equalTo: bottomAnchor)
+            description1.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 30)
         ])
     }
     
@@ -144,10 +144,9 @@ class SearchCardCell: UICollectionViewCell {
         addSubview(description2)
         description2.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            description2.topAnchor.constraint(equalTo: description1.bottomAnchor, constant: 20),
+            description2.topAnchor.constraint(equalTo: description1.bottomAnchor, constant: 1),
             description2.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -30),
-            description2.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 30),
-            description2.bottomAnchor.constraint(equalTo: bottomAnchor)
+            description2.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 30)
         ])
     }
     
