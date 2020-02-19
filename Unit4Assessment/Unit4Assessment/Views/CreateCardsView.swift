@@ -59,12 +59,12 @@ class CreateCardsView: UIView {
         let button = UIButton()
         button.setTitle("Cancel", for: .normal)
         button.backgroundColor = .systemBlue
+        button.addTarget(self, action: #selector(cancelCreateCard), for: .touchUpInside)
         return button
     }()
     
     public var createdCard2: TextObject?
     
-//    public var delegateCard: CreateCardDelegate?
     
     public var textPersistence = DataPersistence<Card>(filename: "card.plist")
     
@@ -152,14 +152,17 @@ class CreateCardsView: UIView {
             let newCard = Card(id: "2", cardTitle: titleTextField.text!, facts: [description1Field.text!, description2Field.text!])
             do {
                 try? textPersistence.createItem(newCard)
-                print("item created")
             } catch {
                 print("could not create card: \(error)")
             }
         }
     }
     
-    private func cancelCreateCard() {
-        
+    @objc private func cancelCreateCard() {
+        if titleTextField.text!.isEmpty == false || description1Field.text!.isEmpty == false || description2Field.text!.isEmpty == false {
+            titleTextField.text = ""
+            description1Field.text = ""
+            description2Field.text = ""
+        }
     }
 }
