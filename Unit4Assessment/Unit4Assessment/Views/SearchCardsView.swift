@@ -10,11 +10,6 @@ import UIKit
 
 class SearchCardsView: UIView {
     
-    public lazy var searchBar: UISearchBar = {
-        let sBar = UISearchBar()
-        return sBar
-    }()
-    
     public lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
@@ -34,25 +29,14 @@ class SearchCardsView: UIView {
     }
     
     private func commonInit() {
-        setupSearchBar()
         setupCollectionView()
-    }
-    
-    private func setupSearchBar() {
-        addSubview(searchBar)
-        searchBar.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            searchBar.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
-            searchBar.leadingAnchor.constraint(equalTo: leadingAnchor),
-            searchBar.trailingAnchor.constraint(equalTo: trailingAnchor)
-        ])
     }
     
     private func setupCollectionView() {
         addSubview(collectionView)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            collectionView.topAnchor.constraint(equalTo: searchBar.bottomAnchor),
+            collectionView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
             collectionView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor),
             collectionView.leadingAnchor.constraint(equalTo: leadingAnchor),
             collectionView.trailingAnchor.constraint(equalTo: trailingAnchor)
