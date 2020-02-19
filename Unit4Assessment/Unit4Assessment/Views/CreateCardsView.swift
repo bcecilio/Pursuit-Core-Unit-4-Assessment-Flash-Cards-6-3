@@ -138,9 +138,16 @@ class CreateCardsView: UIView {
         ])
     }
     
+    public func showAlert(title: String, message: String, completion: ((UIAlertAction) -> Void)? = nil) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "Ok", style: .default, handler: completion)
+        alertController.addAction(okAction)
+        self.window?.rootViewController?.present(alertController, animated: true, completion: nil)
+    }
+    
     @objc private func createCard() {
         if titleTextField.text!.isEmpty || description1Field.text!.isEmpty || description2Field.text!.isEmpty {
-            print("text fields are empty")
+            showAlert(title: "Text boxes are empty!", message: "Cards must have a Title and two Descriptions.")
         } else {
             let newCard = Card(id: "2", cardTitle: titleTextField.text!, facts: [description1Field.text!, description2Field.text!])
             do {
