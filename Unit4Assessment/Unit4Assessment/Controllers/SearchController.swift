@@ -26,7 +26,7 @@ class SearchController: UIViewController {
     override func loadView() {
         view = searchView
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = #colorLiteral(red: 0.9568627477, green: 0.6588235497, blue: 0.5450980663, alpha: 1)
@@ -45,6 +45,13 @@ class SearchController: UIViewController {
                 self?.searchCards = card
             }
         }
+    }
+    
+    public func showAlert(title: String, message: String, completion: ((UIAlertAction) -> Void)? = nil) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "Ok", style: .default, handler: completion)
+        alertController.addAction(okAction)
+        present(alertController, animated: true, completion: nil)
     }
 }
 
@@ -89,11 +96,15 @@ extension SearchController: SearchSavedCellDelegate {
     }
     
     private func saveCard(_ card: Card) {
-        do {
-            try dataPersistence.createItem(card)
-            print("item was saved")
-        } catch {
-            print("error deleting article: \(error)")
+        if !dataPersistence.hasItemBeenSaved(card) {
+            do {
+                try dataPersistence.createItem(card)
+                print("item was saved")
+            } catch {
+                print("error deleting article: \(error)")
+            }
+        } else {
+            showAlert(title: "Error", message: "Could not resave Cards")
         }
     }
 }
