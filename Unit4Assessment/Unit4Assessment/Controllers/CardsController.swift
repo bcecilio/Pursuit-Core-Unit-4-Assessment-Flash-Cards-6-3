@@ -52,8 +52,8 @@ class CardsController: UIViewController {
         loadSavedCards()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
          loadSavedCards()
     }
     
@@ -64,19 +64,6 @@ class CardsController: UIViewController {
             print("could not load saved items: \(error)")
         }
     }
-    
-//    private func addCardToCollection() {
-//        addCard()
-//    }
-//
-//    private func addCard() {
-//        guard let cardVC = storyboard?.instantiateViewController(identifier: "CreateCardController") as? CreateCardController else {
-//            print("nope")
-//            return
-//        }
-//        cardVC.delegatCreate = self
-//        present(cardVC, animated: true)
-//    }
 }
 
 extension CardsController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {

@@ -11,6 +11,8 @@ import DataPersistence
 
 class CreateCardsView: UIView {
     
+    var card: Card?
+    
     public lazy var stackView: UIStackView = {
         let SV = UIStackView()
         SV.addArrangedSubview(titleTextField)
@@ -149,11 +151,19 @@ class CreateCardsView: UIView {
         if titleTextField.text!.isEmpty || description1Field.text!.isEmpty || description2Field.text!.isEmpty {
             showAlert(title: "Text boxes are empty!", message: "Cards must have a Title and two Descriptions.")
         } else {
+            itemAlreadySaved()
+        }
+    }
+    
+    private func itemAlreadySaved() {
+        if !textPersistence.hasItemBeenSaved(card!) {
+            showAlert(title: "Card is already saved!", message: "Cannot resave Cards")
+        } else {
             let newCard = Card(id: "2", cardTitle: titleTextField.text!, facts: [description1Field.text!, description2Field.text!])
             do {
                 try? textPersistence.createItem(newCard)
             } catch {
-                print("could not create card: \(error)")
+                showAlert(title: "Error", message: "Could not save card: \(error)")
             }
         }
     }

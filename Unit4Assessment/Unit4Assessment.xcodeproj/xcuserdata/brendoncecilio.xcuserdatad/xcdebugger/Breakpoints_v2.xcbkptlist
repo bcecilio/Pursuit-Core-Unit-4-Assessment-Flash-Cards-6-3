@@ -3,4 +3,162 @@
    uuid = "97FB74CB-0D9E-4E17-B56C-9780493D6B5C"
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "35A3ED21-2BF6-4291-B7D5-0DAD0026C5F1"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Unit4Assessment/Controllers/CardsController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "18"
+            endingLineNumber = "18"
+            landmarkName = "savedCards"
+            landmarkType = "24">
+            <Locations>
+               <Location
+                  uuid = "35A3ED21-2BF6-4291-B7D5-0DAD0026C5F1 - db105b57ee83269c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Unit4Assessment.CardsController.savedCards.modify : Swift.Array&lt;Unit4Assessment.Card&gt;"
+                  moduleName = "Unit4Assessment"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/brendoncecilio/Documents/Unit4/Pursuit-Core-Unit-4-Assessment-Flash-Cards-6-3/Unit4Assessment/Unit4Assessment/Controllers/CardsController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "26">
+               </Location>
+               <Location
+                  uuid = "35A3ED21-2BF6-4291-B7D5-0DAD0026C5F1 - f119656312b72f2c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Unit4Assessment.CardsController.savedCards.modify : Swift.Array&lt;Unit4Assessment.Card&gt; with unmangled suffix &quot;.resume.0&quot;"
+                  moduleName = "Unit4Assessment"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/brendoncecilio/Documents/Unit4/Pursuit-Core-Unit-4-Assessment-Flash-Cards-6-3/Unit4Assessment/Unit4Assessment/Controllers/CardsController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "18"
+                  endingLineNumber = "18"
+                  offsetFromSymbolStart = "27">
+               </Location>
+               <Location
+                  uuid = "35A3ED21-2BF6-4291-B7D5-0DAD0026C5F1 - cef3c199e74a2776"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Unit4Assessment.CardsController.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; Unit4Assessment.CardsController"
+                  moduleName = "Unit4Assessment"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/brendoncecilio/Documents/Unit4/Pursuit-Core-Unit-4-Assessment-Flash-Cards-6-3/Unit4Assessment/Unit4Assessment/Controllers/CardsController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "18"
+                  endingLineNumber = "18"
+                  offsetFromSymbolStart = "393">
+               </Location>
+               <Location
+                  uuid = "35A3ED21-2BF6-4291-B7D5-0DAD0026C5F1 - c0b7bb3fab1cf971"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Unit4Assessment.CardsController.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;Unit4Assessment.CardsController&gt;"
+                  moduleName = "Unit4Assessment"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/brendoncecilio/Documents/Unit4/Pursuit-Core-Unit-4-Assessment-Flash-Cards-6-3/Unit4Assessment/Unit4Assessment/Controllers/CardsController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "18"
+                  endingLineNumber = "18"
+                  offsetFromSymbolStart = "318">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "7FE1EDDD-8FEA-42A8-B5E6-92F077E9F421"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Unit4Assessment/Controllers/CardsController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "30"
+            endingLineNumber = "30"
+            landmarkName = "selectedCardInitial"
+            landmarkType = "24">
+            <Locations>
+               <Location
+                  uuid = "7FE1EDDD-8FEA-42A8-B5E6-92F077E9F421 - 4b7876ca0df3ea06"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Unit4Assessment.CardsController.selectedCardInitial.modify : Swift.Array&lt;Unit4Assessment.Card&gt;"
+                  moduleName = "Unit4Assessment"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/brendoncecilio/Documents/Unit4/Pursuit-Core-Unit-4-Assessment-Flash-Cards-6-3/Unit4Assessment/Unit4Assessment/Controllers/CardsController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "26">
+               </Location>
+               <Location
+                  uuid = "7FE1EDDD-8FEA-42A8-B5E6-92F077E9F421 - 823e27a9bf722b9c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Unit4Assessment.CardsController.selectedCardInitial.modify : Swift.Array&lt;Unit4Assessment.Card&gt; with unmangled suffix &quot;.resume.0&quot;"
+                  moduleName = "Unit4Assessment"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/brendoncecilio/Documents/Unit4/Pursuit-Core-Unit-4-Assessment-Flash-Cards-6-3/Unit4Assessment/Unit4Assessment/Controllers/CardsController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "30"
+                  endingLineNumber = "30"
+                  offsetFromSymbolStart = "27">
+               </Location>
+               <Location
+                  uuid = "7FE1EDDD-8FEA-42A8-B5E6-92F077E9F421 - cef3c199e74a2776"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Unit4Assessment.CardsController.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; Unit4Assessment.CardsController"
+                  moduleName = "Unit4Assessment"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/brendoncecilio/Documents/Unit4/Pursuit-Core-Unit-4-Assessment-Flash-Cards-6-3/Unit4Assessment/Unit4Assessment/Controllers/CardsController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "30"
+                  endingLineNumber = "30"
+                  offsetFromSymbolStart = "497">
+               </Location>
+               <Location
+                  uuid = "7FE1EDDD-8FEA-42A8-B5E6-92F077E9F421 - c0b7bb3fab1cf971"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Unit4Assessment.CardsController.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;Unit4Assessment.CardsController&gt;"
+                  moduleName = "Unit4Assessment"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/brendoncecilio/Documents/Unit4/Pursuit-Core-Unit-4-Assessment-Flash-Cards-6-3/Unit4Assessment/Unit4Assessment/Controllers/CardsController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "30"
+                  endingLineNumber = "30"
+                  offsetFromSymbolStart = "422">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>
