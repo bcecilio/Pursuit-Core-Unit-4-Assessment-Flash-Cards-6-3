@@ -93,9 +93,10 @@ class CreateCardsView: UIView {
         addSubview(stackView)
         stackView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            stackView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 200),
+            stackView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 150),
             stackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
-            stackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20)
+            stackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
+            stackView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -50)
         ])
     }
     private func setupQuestionField() {
@@ -128,7 +129,8 @@ class CreateCardsView: UIView {
         addSubview(createButton)
         createButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            createButton.widthAnchor.constraint(equalToConstant: 100)
+            createButton.widthAnchor.constraint(equalToConstant: 100),
+            createButton.topAnchor.constraint(equalTo: description2Field.bottomAnchor, constant: -20)
         ])
     }
     
@@ -136,7 +138,8 @@ class CreateCardsView: UIView {
         addSubview(cancelButton)
         cancelButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            cancelButton.widthAnchor.constraint(equalToConstant: 90)
+            cancelButton.widthAnchor.constraint(equalToConstant: 90),
+            cancelButton.topAnchor.constraint(equalTo: createButton.bottomAnchor, constant: -20)
         ])
     }
     
