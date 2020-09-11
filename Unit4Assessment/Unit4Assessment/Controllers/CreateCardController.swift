@@ -19,7 +19,7 @@ class CreateCardController: UIViewController {
     
     private var keyboardIsVisible = false
     
-    public var createdCard: Card!
+    public var createdCard: Card?
     
     override func loadView() {
         view = createCardView
@@ -32,38 +32,37 @@ class CreateCardController: UIViewController {
         createCardView.description2Field.delegate = self
         createCardView.description1Field.delegate = self
         registerForKeyboardNotifications()
+        createCardButtonTarget()
     }
     
     private func createCardButtonTarget() {
         createCardView.createButton.addTarget(self, action: #selector(createCard), for: .touchUpInside)
     }
-    
+
     @objc private func createCard() {
         if createCardView.titleTextField.text!.isEmpty && ((createCardView.description1Field.text?.isEmpty) != nil) && ((createCardView.description2Field.text?.isEmpty) != nil) {
             showAlert(title: "Text boxes are empty!", message: "Cards must have a Title and two Descriptions.")
         } else {
-            itemIsAlreadySaved()
+//            let savedCardsVC = CardsController()
+//            let newCard = savedCardsVC.newCard
+            createdCard = Card(id: "2", cardTitle: createCardView.titleTextField.text!, facts: [createCardView.description1Field.text!,createCardView.description2Field.text!])
+            createNewCard(card: createdCard!)
         }
     }
     
-    private func itemIsAlreadySaved() {
-        if !textPersistence.hasItemBeenSaved(createdCard) {
-            showAlert(title: "Card is already saved!", message: "Cannot resave Cards")
-        } else {
-            createdCard = Card(id: "2", cardTitle: createCardView.titleTextField.text!, facts: [createCardView.description1Field.text!, createCardView.description2Field.text!])
-            do {
-                try? textPersistence.createItem(createdCard)
-            } catch {
-                showAlert(title: "Error", message: "Could not save card: \(error)")
-            }
-        }
+    public func createNewCard(card: Card) {
+        let savedCardsVC = CardsController()
+        savedCardsVC.savedCards.append(card)
+//        let indexPath = IndexPath(row: savedCardsVC.savedCards.count - 1, section: 0)
+//        savedCardsVC.initalView.collectionView.insertItems(at: [indexPath])
+        try? textPersistence.createItem(card)
     }
     
     public func showAlert(title: String, message: String, completion: ((UIAlertAction) -> Void)? = nil) {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let okAction = UIAlertAction(title: "Ok", style: .default, handler: completion)
         alertController.addAction(okAction)
-//        self.window?.rootViewController?.present(alertController, animated: true, completion: nil)
+        present(alertController, animated: true, completion: nil)
     }
     
     private func registerForKeyboardNotifications() {

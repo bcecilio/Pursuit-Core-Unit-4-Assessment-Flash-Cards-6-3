@@ -11,9 +11,11 @@ import DataPersistence
 
 class CardsController: UIViewController {
     
-    private let initalView = CardsView()
+    public let initalView = CardsView()
     
     public var savedPersistence = DataPersistence<Card>(filename: "card.plist")
+    
+    public var newCard: Card?
     
     public var savedCards = [Card]() {
         didSet {
