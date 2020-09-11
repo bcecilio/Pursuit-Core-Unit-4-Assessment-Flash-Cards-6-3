@@ -30,7 +30,7 @@ class InitialVCCardCell: UICollectionViewCell {
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.preferredFont(forTextStyle: .title2)
-        label.text = "QUESTION QUESTINO QUESTION QUESITON"
+        label.textAlignment = .center
         label.numberOfLines = 0
         return label
     }()
@@ -38,7 +38,8 @@ class InitialVCCardCell: UICollectionViewCell {
     private lazy var description1: UILabel = {
         let label = UILabel()
         label.font = UIFont.preferredFont(forTextStyle: .title2)
-        label.text = ""
+        label.textAlignment = .center
+        label.font = UIFont(name: "Helvetica-Neue", size: 14)
         label.numberOfLines = 0
         return label
     }()
@@ -46,7 +47,8 @@ class InitialVCCardCell: UICollectionViewCell {
     private lazy var description2: UILabel = {
         let label = UILabel()
         label.font = UIFont.preferredFont(forTextStyle: .title2)
-        label.text = ""
+        label.textAlignment = .center
+        label.font = UIFont(name: "Helvetica-Neue", size: 14)
         label.numberOfLines = 0
         return label
     }()
@@ -122,10 +124,10 @@ class InitialVCCardCell: UICollectionViewCell {
         addSubview(titleLabel)
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
-            titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
-            titleLabel.topAnchor.constraint(equalTo: saveButton.bottomAnchor),
-            titleLabel.bottomAnchor.constraint(equalTo: bottomAnchor)
+            titleLabel.centerYAnchor.constraint(equalTo: centerYAnchor),
+            titleLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
+            titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
+            titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20)
         ])
     }
     
@@ -133,9 +135,9 @@ class InitialVCCardCell: UICollectionViewCell {
         addSubview(description1)
         description1.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            description1.topAnchor.constraint(equalTo: saveButton.bottomAnchor),
-            description1.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -30),
-            description1.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 30)
+            description1.topAnchor.constraint(equalTo: saveButton.bottomAnchor, constant: 40),
+            description1.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
+            description1.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20)
         ])
     }
     
@@ -143,9 +145,9 @@ class InitialVCCardCell: UICollectionViewCell {
         addSubview(description2)
         description2.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            description2.topAnchor.constraint(equalTo: description1.bottomAnchor, constant: 1),
-            description2.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -30),
-            description2.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 30)
+            description2.topAnchor.constraint(equalTo: description1.bottomAnchor, constant: 10),
+            description2.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
+            description2.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20)
         ])
     }
     
