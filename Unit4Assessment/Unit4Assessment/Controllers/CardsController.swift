@@ -133,9 +133,3 @@ extension CardsController: MainVCCellDelegate {
         }
     }
 }
-
-//extension CardsController: CreateCardDelegate {
-//    func createCard(_ card: Card) {
-//        self.selectedCardInitial.append(card)
-//    }
-//}

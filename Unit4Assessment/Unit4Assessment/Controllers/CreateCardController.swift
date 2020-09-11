@@ -43,8 +43,6 @@ class CreateCardController: UIViewController {
         if createCardView.titleTextField.text!.isEmpty && ((createCardView.description1Field.text?.isEmpty) != nil) && ((createCardView.description2Field.text?.isEmpty) != nil) {
             showAlert(title: "Text boxes are empty!", message: "Cards must have a Title and two Descriptions.")
         } else {
-//            let savedCardsVC = CardsController()
-//            let newCard = savedCardsVC.newCard
             createdCard = Card(id: "2", cardTitle: createCardView.titleTextField.text!, facts: [createCardView.description1Field.text!,createCardView.description2Field.text!])
             createNewCard(card: createdCard!)
         }
@@ -53,9 +51,11 @@ class CreateCardController: UIViewController {
     public func createNewCard(card: Card) {
         let savedCardsVC = CardsController()
         savedCardsVC.savedCards.append(card)
-//        let indexPath = IndexPath(row: savedCardsVC.savedCards.count - 1, section: 0)
-//        savedCardsVC.initalView.collectionView.insertItems(at: [indexPath])
         try? textPersistence.createItem(card)
+        showAlert(title: "Success!", message: "Your Flash Card was successfully created.")
+        createCardView.titleTextField.text = ""
+        createCardView.description1Field.text = ""
+        createCardView.description2Field.text = ""
     }
     
     public func showAlert(title: String, message: String, completion: ((UIAlertAction) -> Void)? = nil) {
