@@ -49,15 +49,15 @@ class CreateCardsView: UIView {
         return field
     }()
     
-    private lazy var createButton: UIButton = {
+    public lazy var createButton: UIButton = {
         let button = UIButton()
         button.setTitle("Create Card", for: .normal)
         button.backgroundColor = .systemBlue
-        button.addTarget(self, action: #selector(createCard), for: .touchUpInside)
+//        button.addTarget(self, action: #selector(createCard), for: .touchUpInside)
         return button
     }()
     
-    private lazy var cancelButton: UIButton = {
+    public lazy var cancelButton: UIButton = {
         let button = UIButton()
         button.setTitle("Cancel", for: .normal)
         button.backgroundColor = .systemBlue
@@ -150,26 +150,26 @@ class CreateCardsView: UIView {
         self.window?.rootViewController?.present(alertController, animated: true, completion: nil)
     }
     
-    @objc private func createCard() {
-        if titleTextField.text!.isEmpty || description1Field.text!.isEmpty || description2Field.text!.isEmpty {
-            showAlert(title: "Text boxes are empty!", message: "Cards must have a Title and two Descriptions.")
-        } else {
-            itemAlreadySaved()
-        }
-    }
+//    @objc private func createCard() {
+//        if titleTextField.text!.isEmpty || description1Field.text!.isEmpty || description2Field.text!.isEmpty {
+//            showAlert(title: "Text boxes are empty!", message: "Cards must have a Title and two Descriptions.")
+//        } else {
+//            try? textPersistence.createItem(card!)
+//        }
+//    }
     
-    private func itemAlreadySaved() {
-        if !textPersistence.hasItemBeenSaved(card!) {
-            showAlert(title: "Card is already saved!", message: "Cannot resave Cards")
-        } else {
-            let newCard = Card(id: "2", cardTitle: titleTextField.text!, facts: [description1Field.text!, description2Field.text!])
-            do {
-                try? textPersistence.createItem(newCard)
-            } catch {
-                showAlert(title: "Error", message: "Could not save card: \(error)")
-            }
-        }
-    }
+//    private func itemAlreadySaved() {
+//        if !textPersistence.hasItemBeenSaved(card!) {
+//            showAlert(title: "Card is already saved!", message: "Cannot resave Cards")
+//        } else {
+//            card = Card(id: "2", cardTitle: titleTextField.text!, facts: [description1Field.text!, description2Field.text!])
+//            do {
+//                try? textPersistence.createItem(card!)
+//            } catch {
+//                showAlert(title: "Error", message: "Could not save card: \(error)")
+//            }
+//        }
+//    }
     
     @objc private func cancelCreateCard() {
         if titleTextField.text!.isEmpty == false || description1Field.text!.isEmpty == false || description2Field.text!.isEmpty == false {
